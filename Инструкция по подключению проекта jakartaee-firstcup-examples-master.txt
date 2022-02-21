@@ -1,0 +1,24 @@
+1) Открыть проект jakartaee-firstcup-examples-master в intellij idea
+2) Установить GlassFish/Java (Исполбьзовались версии: Glassfish 6.2.3, Java 17)
+3) В Project Structure выбрать нужный JDK в Project, Modules
+4) Убедиться в наличии Artifacts war exploded для dukes-age и firstcup-war
+5) В корневом pom.xml добавить dependency:
+<dependency>
+	<groupId>org.eclipse.persistence</groupId>
+     <artifactId>org.eclipse.persistence.jpa</artifactId>
+     <version>3.0.2</version>
+</dependency>
+6) Пересобрать maven
+7) Проверить, что persistance в firstcup-war подключило нужный пакет
+8) В IDE сделать подключение glassfish
+9) Добавить конфигурацию запуска Glassfish; 
+	Выбрать нужную версию (если потребуется, указать до неё путь в системе);
+	В URL для удобства прописать http://localhost:8080/firstcup-war, и выбрать запуск браузера;
+	Выбрать нужную JRE; Server Domain - domain1;
+	Во вкладке deployment добавить artifacts war exploded dukes-age и firstcup-war;
+	Во вкладке Server - Before Launch - проверить наличие Build 2 artifacts;
+10) На всякий случай можно выбрать в Project Structure - Modules пакеты jakarta и eclipse
+11) Запустить командную строку, перейти в папку glassfish<version>/javadb/bin и запустить
+		.\startNetworkServer
+12) Запустить проект в IDE
+13) Откроется страница http://localhost:8080/firstcup-war с данными
